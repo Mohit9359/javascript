@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Counter Card 400x400</title>
+  <style>
+    
+    .card {
+      width: 400px;
+      height: 400px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: linear-gradient(180deg,#ffffff,#f6f8fb);
+      padding: 18px;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    .logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: white;
+      background: linear-gradient(135deg,#da8113,#11ba2d);
+      box-shadow: 0 6px 12px rgba(27,43,77,0.12);
+      margin-top: 6px;
+    }
+
+    .indicator {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .count-circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      box-shadow: 0 8px 18px rgba(30,60,100,0.08);
+      font-size: 48px;
+      font-weight: 700;
+      color: #2b3a67;
+    }
+
+    .controls {
+      width: 100%;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 6px;
+    }
+
+    button {
+      padding: 10px 18px;
+      border-radius: 10px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      min-width: 120px;
+      box-shadow: 0 6px 12px rgba(43,60,100,0.06);
+    }
+
+    .btn-inc {
+      background: linear-gradient(90deg,#ecf01a,#2e10dd);
+      color: white;
+    }
+
+    .btn-dec {
+      background: linear-gradient(90deg,#e74c3c,#9cb619c2);
+      color: white;
+    }
+
+    .muted {
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 420px){
+      .card{transform: scale(0.95)}
+    }
+  </style>
+</head>
+<body>
+  <div style="height:100vh;display:flex;align-items:center;justify-content:center;">
+    <div class="card" id="card">
+      <div class="logo">LOGO</div>
+
+      <div class="indicator">
+        <div class="count-circle" id="countDisplay">0</div>
+      </div>
+
+      <div class="controls">
+        <button class="btn-dec" id="decBtn">Decrease</button>
+        <button class="btn-inc" id="incBtn">Increase</button>
+      </div>
+
+      <div class="muted"></div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const display = document.getElementById('countDisplay');
+      const incBtn = document.getElementById('incBtn');
+      const decBtn = document.getElementById('decBtn');
+
+      let count = 0;
+      const MAX = 10;
+      const MIN = 0;
+
+      function render(){
+        display.textContent = count;
+      }
+
+      incBtn.addEventListener('click', ()=>{
+        if (count >= MAX) {
+          
+          alert('Maximum limit');
+          count = 0;
+          render();
+          alert('Minimum limit');
+          return;
+        }
+        count += 1;
+        render();
+      });
+
+      decBtn.addEventListener('click', ()=>{
+        if (count <= MIN) {
+          // Do not go below minimum; show alert
+          alert('Minimum limit');
+          count = MIN;
+          render();
+          return;
+        }
+        count -= 1;
+        render();
+      });
+
+      // initial render
+      render();
+    })();
+  </script>
+</body>
+</html>
