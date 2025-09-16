@@ -1,11 +1,112 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flipkart Clone Navbar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f1f3f6; /* Flipkart page bg */
+    }
 
+    /* Top Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 16px;
+      background-color: #2874f0; /* Flipkart blue */
+    }
+
+    .logo img {
+      height: 50px;   /* larger size */
+      margin-left: -8px; /* pushes logo a bit more left */
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 16px;
+      display: flex;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 2px;
+      outline: none;
+      font-size: 14px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white; /* Flipkart white links */
+      font-size: 14px;
+      position: relative;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 24px;
+      right: 0;
+      background: #fff;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 4px;
+      white-space: nowrap;
+      border: 1px solid #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Second Row (Empty Bar) */
+    .categories {
+      height: 50px;
+      background: white;
+      border-bottom: 1px solid #ddd;
+    }
+  </style>
 </head>
 <body>
-    <p id="adi"> </p>
-    <script>
-        alert("ABESEC COLLEGE");
-        document.write("<h1>elcome to codex<h1>/")
-    </script>
+
+  <!-- Top Navbar -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="Flipkart-Logo.png" alt="Flipkart Logo">
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search for Products, Brands and More">
+    </div>
+
+    <div class="nav-links">
+      <div class="dropdown">
+        <a href="#">Login ▼</a>
+        <div class="dropdown-content">Login</div>
+      </div>
+      <a href="#">Cart 🛒</a>
+      <a href="#">Become a Seller</a>
+      <a href="#">⋮</a>
+    </div>
+  </div>
+
+  <!-- Empty Categories Row -->
+  <div class="categories"></div>
+
 </body>
+</html>
